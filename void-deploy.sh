@@ -8,7 +8,7 @@ sudo xbps-install -Syu
 
 ## Necessary Packages
 echo "Installing some necessary packages."
-sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm chromium nodejs htop mpv feh terminus-font nerd-fonts-ttf exa neofetch
+sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm chromium nodejs htop mpv feh terminus-font nerd-fonts-ttf exa neofetch
 
 ## Setting up DWM
 echo "Setting up DWM."
