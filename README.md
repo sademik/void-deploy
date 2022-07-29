@@ -17,6 +17,8 @@ uncomment `(#%wheel ALL=(ALL:ALL) NOPASSWD: ALL) ===> (%wheel ALL=(ALL:ALL) NOPA
 
 `$ git clone https://github.com/sademik/void-deploy`
 
+### run the script
+
 `$ chmod +x void-deploy/void-deploy.sh`
 
 `$ ./void-deploy/void-deploy.sh`
