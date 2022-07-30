@@ -5,7 +5,7 @@ deploys my dwm flavor of void linux, makes life easier
 
 ### change privileges
 
-`$ sudo EDITOR=vim visudo`
+`$ sudo EDITOR=vi visudo`
 
 uncomment `(#%wheel ALL=(ALL:ALL) NOPASSWD: ALL) ===> (%wheel ALL=(ALL:ALL) NOPASSWD: ALL)`
 
@@ -22,3 +22,5 @@ uncomment `(#%wheel ALL=(ALL:ALL) NOPASSWD: ALL) ===> (%wheel ALL=(ALL:ALL) NOPA
 `$ chmod +x void-deploy/void-deploy.sh`
 
 `$ ./void-deploy/void-deploy.sh`
+
+### run `startx` to enter DWM
