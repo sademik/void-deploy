@@ -2,7 +2,7 @@
 mkdir ~/.config
 
 ## Extra Pacakges Install
-sudo xbps-install -S --yes alacritty fff fzf gnupg gtk+3-devel p7zip mercurial olm python3-pip zathura zip zsh
+sudo xbps-install -S --yes alacritty fff fzf cmus gnupg gtk+3-devel p7zip mercurial olm python3-pip zathura zip zsh
 
 ## Alacritty Config
 cd
