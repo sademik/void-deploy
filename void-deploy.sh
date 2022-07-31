@@ -15,7 +15,7 @@ echo "Setting up DWM."
 mkdir suckless
 cd suckless
 ## Eventually thesee will be changed to my own repos with my self-configured versions of the Suckless tools.
-git clone https://git.suckless.org/dwm 
+git clone https://github.com/sademik/dwm
 git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dmenu
 cd dwm
