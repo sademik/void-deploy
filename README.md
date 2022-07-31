@@ -23,4 +23,10 @@ uncomment `(#%wheel ALL=(ALL:ALL) NOPASSWD: ALL) ===> (%wheel ALL=(ALL:ALL) NOPA
 
 `$ ./void-deploy/void-deploy.sh`
 
-### run `startx` to enter DWM
+### after restart
+
+`$ chmod +x void-deploy/extra-packages.sh`
+
+`$ ./void-deploy/extra-packages.sh`
+
+### enter DWM with `startx`
