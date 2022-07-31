@@ -18,4 +18,10 @@ cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold\ Italic.ttf ~/.fonts
 cp ~/void-deploy/fonts/MesloLGS\ NF\ Italic.ttf ~/.fonts
 cp ~/void-deploy/fonts/MesloLGS\ NF\ Regular.ttf ~/.fonts
 
+## Configure Zathura
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+mkdir ~/.config/zathura/
+cp ~/void-deploy/configs/zathurarc ~/.config/zathura/zathurarc
+
+
 ## WIP
