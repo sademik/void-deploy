@@ -13,9 +13,9 @@ cd
 
 ## Copy fonts
 mkdir ~/.fonts
-cp ~/void-deploy/fonts/MesloLGS NF Bold.ttf ~/.fonts
-cp ~/void-deploy/fonts/MesloLGS NF Bold Italic.ttf ~/.fonts
-cp ~/void-deploy/fonts/MesloLGS NF Italic.ttf ~/.fonts
-cp ~/void-deploy/fonts/MesloLGS NF Regular.ttf ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold.ttf ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold\ Italic.ttf ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Italic.ttf ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Regular.ttf ~/.fonts
 
 ## WIP
