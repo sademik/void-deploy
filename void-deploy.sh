@@ -30,9 +30,16 @@ cd dmenu
 make
 sudo make clean install
 cd
+
+##Constructing .xinitrc
 touch ~/.xinitrc
 echo "setxkbmap us &" >> .xinitrc
-echo "exec dwm" >> .xinitrc
+echo "exec dwm & wmpid=$!" >> .xinitrc
+echo "sleep 5" >> .xinitrc
+echo "~/void-deploy/scripts/.set_monitor.sh" >> .xinitrc
+echo "feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg" >> .xinitrc
+echo "~/void-deploy/scripts/.set_time.sh" >> .xinitrc
+echo "wait $wmpid" >> .xinitrc
 ## Run 'startx' from tty
 echo "Run 'startx' from tty"
 
