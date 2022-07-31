@@ -18,6 +18,7 @@ cd suckless
 git clone https://github.com/sademik/dwm
 git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dmenu
+git clone https://github.com/sademik/slstatus
 cd dwm
 make
 sudo make clean install
@@ -29,12 +30,17 @@ cd ..
 cd dmenu
 make
 sudo make clean install
+cd ..
+cd slstatus
+make
+sudo make clean install
 cd
 
 ##Constructing .xinitrc
 touch ~/.xinitrc
 echo "setxkbmap us &" >> .xinitrc
 echo "exec dwm & wmpid=$!" >> .xinitrc
+echo "exec slstatus &" >> .xinitrc
 echo "sleep 5" >> .xinitrc
 echo "~/void-deploy/scripts/.set_monitor.sh" >> .xinitrc
 echo "feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg" >> .xinitrc
