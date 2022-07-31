@@ -40,6 +40,11 @@ echo "~/void-deploy/scripts/.set_monitor.sh" >> .xinitrc
 echo "feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg" >> .xinitrc
 echo "~/void-deploy/scripts/.set_time.sh" >> .xinitrc
 echo "wait $wmpid" >> .xinitrc
+
+## Make .set_monitor.sh and .set_time.sh executable
+sudo chmod +x ~/void-deploy/scripts/.set_monitor.sh
+sudo chmod +x ~/void-deploy/scripts/.set_time.sh
+
 ## Run 'startx' from tty
 echo "Run 'startx' from tty"
 
