@@ -1,4 +1,4 @@
-# Void Linux with DWM Deployment
+# Void Linux with DWM Deployment (my flavour)
 
 ## System Update
 echo "Updating the system."
@@ -6,9 +6,9 @@ sudo xbps-install -Syy
 sudo xbps-install -u xbps
 sudo xbps-install -Syu
 
-## Necessary Packages
-echo "Installing some necessary packages."
-sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm chromium nodejs htop mpv feh terminus-font nerd-fonts-ttf exa neofetch vim
+## Install Packages
+echo "Installing some packages."
+sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm chromium nodejs htop mpv feh terminus-font nerd-fonts-ttf exa neofetch vim alacritty fff fzf cmus gnupg gtk+3-devel p7zip mercurial olm python3-pip zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip zsh
 
 ## Setting up DWM
 echo "Setting up DWM."
@@ -53,6 +53,28 @@ sudo chmod +x ~/void-deploy/scripts/.set_time.sh
 
 ## Set xrate to be lower
 xset r rate 230
+
+## Make .config
+mkdir ~/.config
+
+## Alacritty configuration
+cd
+mkdir ~/.config/alacritty/
+cd ~/void-deploy/configs
+cp alacritty.yml ~/.config/alacritty/
+cd
+
+## Copy fonts
+mkdir ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold.ttf ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold\ Italic.ttf ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Italic.ttf ~/.fonts
+cp ~/void-deploy/fonts/MesloLGS\ NF\ Regular.ttf ~/.fonts
+
+## Zathura configuration
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+mkdir ~/.config/zathura/
+cp ~/void-deploy/configs/zathurarc ~/.config/zathura/zathurarc
 
 ## Run 'startx' from tty
 echo "Run 'startx' from tty"
