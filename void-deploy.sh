@@ -51,6 +51,9 @@ echo "wait $wmpid" >> .xinitrc
 sudo chmod +x ~/void-deploy/scripts/.set_monitor.sh
 sudo chmod +x ~/void-deploy/scripts/.set_time.sh
 
+## Set xrate to be lower
+xset r rate 230
+
 ## Run 'startx' from tty
 echo "Run 'startx' from tty"
 
