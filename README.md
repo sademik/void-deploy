@@ -19,7 +19,7 @@ uncomment `(#%wheel ALL=(ALL:ALL) NOPASSWD: ALL) ===> (%wheel ALL=(ALL:ALL) NOPA
 
 ### run the script
 
-`$ chmod +x void-deploy/void-deploy.sh`
+`$ sudo chmod +x void-deploy/void-deploy.sh`
 
 `$ ./void-deploy/void-deploy.sh`
 
