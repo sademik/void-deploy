@@ -1,5 +1,5 @@
 #Autostart pre instant prompt
-neofetch --ascii ~/Documents/asciianime
+neofetch --ascii ~/void-deploy/configs/asciianime
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="micro ~/.zshrc"
 alias ohmyzsh="micro ~/.oh-my-zsh"
-alias neofetch="neofetch --ascii ~/.config/neofetch/asciianime"
+alias neofetch="neofetch --ascii ~/void-deploy/configs/asciianime"
 alias ls="exa -G --icons --all --no-permissions --no-user"
 alias exa="exa -G --icons --all --no-permissions --no-user"
 alias lsd="exa -G --icons --all --no-permissions --no-user"
