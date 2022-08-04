@@ -64,6 +64,15 @@ cd ~/void-deploy/configs
 cp alacritty.yml ~/.config/alacritty/
 cd
 
+## ZSH Config (test)
+sudo chsh -s /bin/zsh faen
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+cd
+cp ~/void-deploy/configs/zsh/.zshrc ~/.zshrc
+cp ~/void-deploy/configs/zsh/.p10k.zsh ~/.p10k.zsh
+cp ~/void-deploy/configs/zsh/.zsh_history ~/.zsh_history
+
 ## Copy fonts
 mkdir ~/.fonts
 cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold.ttf ~/.fonts
