@@ -8,7 +8,7 @@ sudo xbps-install -Syu
 
 ## Install Packages
 echo "Installing some packages."
-sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm chromium nodejs htop mpv feh terminus-font nerd-fonts-ttf exa neofetch vim alacritty fff fzf cmus gnupg gtk+3-devel p7zip mercurial olm python3-pip zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip zsh
+sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop mpv feh terminus-font nerd-fonts-ttf exa neofetch vim alacritty fff fzf cmus gnupg gtk+3-devel p7zip mercurial olm python3-pip zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip zsh
 
 ## Setting up DWM
 echo "Setting up DWM."
@@ -71,7 +71,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 cd
 cp ~/void-deploy/configs/zsh/.zshrc ~/.zshrc
 cp ~/void-deploy/configs/zsh/.p10k.zsh ~/.p10k.zsh
-cp ~/void-deploy/configs/zsh/.zsh_history ~/.zsh_history
 
 ## Copy fonts
 mkdir ~/.fonts
