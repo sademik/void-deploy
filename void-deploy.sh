@@ -96,6 +96,9 @@ cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold.ttf ~/.fonts
 cp ~/void-deploy/fonts/MesloLGS\ NF\ Bold\ Italic.ttf ~/.fonts
 cp ~/void-deploy/fonts/MesloLGS\ NF\ Italic.ttf ~/.fonts
 cp ~/void-deploy/fonts/MesloLGS\ NF\ Regular.ttf ~/.fonts
+cd ~/.fonts
+wget https://github.com/slavfox/Cozette/releases/download/v.1.17.2/cozette_bitmap.ttf
+cd
 
 
 ## Zathura configuration
