@@ -11,3 +11,6 @@ set recolor-keephue				"true" # Keeps the original hue in images
 # startup options
 set adjust-open width
 set recolor true
+
+# keybinds
+map <C-i> recolor
