@@ -7,7 +7,7 @@ deploys my dwm flavor of void linux, makes life easier
 
 `$ sudo EDITOR=vi visudo`
 
-uncomment `(#%wheel ALL=(ALL:ALL) NOPASSWD: ALL) ===> (%wheel ALL=(ALL:ALL) NOPASSWD: ALL)`
+uncomment `#%wheel ALL=(ALL:ALL) NOPASSWD: ALL`
 
 ### git this repo
 
