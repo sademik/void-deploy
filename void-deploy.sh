@@ -130,7 +130,7 @@ cd
 ## SOWM Setup
 git clone https://github.com/sademik/sowm
 cd sowm
-sudo make sowm
+sudo make clean install
 cd
 
 
