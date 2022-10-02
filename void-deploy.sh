@@ -1,4 +1,5 @@
-# Void Linux with DWM Deployment (my flavour)
+#!/bin/bash
+# Void Linux with DWM and SOWM Deployment (my flavour)
 
 
 ## System Update
@@ -12,14 +13,49 @@ sudo xbps-install -S --yes void-repo-multilib void-repo-multilib-nonfree void-re
 sudo xbps-install -Syy
 
 
-## Install Packages
-sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop btop mpv feh terminus-font nerd-fonts-ttf exa neofetch vim alacritty fff fzf cmus gnupg gtk+3-devel p7zip mercurial olm python3-pip zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip zsh xz binutils tar ffmpeg bluez mdadm bridge-utils cryptsetup element-desktop dejavu-fonts-ttf dmidecode font-misc-misc github-cli glxinfo gvfs-afc gvfs-mtp gvfs-smb libcurl-devel libdrm-32bit libgcc-32bit libopencv-python3 libstdc++-32bit libvirt lvm2 mesa-dri-32bit mesa-vaapi mesa-vdpau mesa-vulkan-radeon mono ncdu network-manager-applet noto-fonts-cjk noto-fonts-emoji ntfs-3g olm olm-python3 openbsd-netcat pfetch python-devel python3-devel python3-distutils-extra qemu steam udisks2 virt-manager virt-viewer vkd3d vkd3d-devel w3m w3m-img weechat weechat-python wmctrl xarchiver xauth xorg-input-drivers xorg-minimal xorg-video-drivers xsel void-docs-browse rust cargo ufetch fish-shell rxvt-unicode SDL SDL-32bit SDL-devel SDL-devel-32bit SDL_image-devel SDL_image SDL_ttf ImageMagick dhclient exiftool glu gimp fuse-overlayfs libglvnd-32bit lvm2 moc python3-argh python3-ConfigArgParse python3-distlib python-distutils-extra wally-cli tree setxkbmap task xbindkeys idle-python3
+## Define Minimal Installation Packages Function
+minimal () {
+sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop btop mpv feh terminus-font exa neofetch vim alacritty fzf cmus gnupg gtk+3-devel p7zip mercurial zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip xz tar binutils ffmpeg ufetch w3m w3m-img zsh fish-shell xsel wally-cli setxkbmap xbindkeys task ntfs-3g
+}
 
 
-## Setting up DWM
+## Define Full Installation Packages Function
+full () {
+sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop btop mpv feh terminus-font nerd-fonts-ttf exa neofetch vim alacritty fff fzf cmus gnupg gtk+3-devel p7zip mercurial python3-pip zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip zsh xz binutils tar ffmpeg bluez mdadm bridge-utils cryptsetup element-desktop dejavu-fonts-ttf dmidecode font-misc-misc github-cli glxinfo gvfs-afc gvfs-mtp gvfs-smb libcurl-devel libdrm-32bit libgcc-32bit libopencv-python3 libstdc++-32bit libvirt lvm2 mesa-dri-32bit mesa-vaapi mesa-vdpau mesa-vulkan-radeon mono ncdu network-manager-applet noto-fonts-cjk noto-fonts-emoji ntfs-3g olm olm-python3 openbsd-netcat pfetch python-devel python3-devel python3-distutils-extra qemu steam udisks2 virt-manager virt-viewer vkd3d vkd3d-devel w3m w3m-img weechat weechat-python wmctrl xarchiver xauth xorg-input-drivers xorg-minimal xorg-video-drivers xsel void-docs-browse rust cargo ufetch fish-shell rxvt-unicode SDL SDL-32bit SDL-devel SDL-devel-32bit SDL_image-devel SDL_image SDL_ttf ImageMagick dhclient exiftool glu gimp fuse-overlayfs libglvnd-32bit moc python3-argh python3-ConfigArgParse python3-distlib python-distutils-extra wally-cli tree setxkbmap task xbindkeys idle-python3
+}
+
+
+## User Chooses 'Minimal' or 'Full' Installation
+PS3='Installation type: '
+options=("Minimal" "Full" "Quit")
+select opt in "${options[@]}"
+do
+  case $opt in
+    "Minimal")
+      echo "Minimal package installation initialized."
+      minimal
+      echo "Minimal package installation successful."
+      break
+      ;;
+    "Full")
+      echo "Full package installation initialized."
+      full
+      echo "Full package installation successful."
+      break
+      ;;
+    "Quit")
+      break
+      ;;
+    *) echo "Invalid option: $REPLY";;
+  esac
+done
+
+
+
+## DWM Setup
 mkdir suckless
 cd suckless
-## Eventually thesee will be changed to my own repos with my self-configured versions of the Suckless tools.
+## Eventually these will be changed to my own repos with my self-configured versions of the Suckless tools.
 git clone https://github.com/sademik/dwm
 git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dmenu
@@ -42,17 +78,28 @@ sudo make clean install
 cd
 
 
-##Constructing .xinitrc
-touch ~/.xinitrc
-echo "setxkbmap us &" >> .xinitrc
-echo "exec dwm & wmpid=$!" >> .xinitrc
-echo "exec slstatus &" >> .xinitrc
-echo "sleep 5" >> .xinitrc
-echo "xset r rate 175" >> .xinitrc
-echo "~/void-deploy/scripts/.set_monitor.sh" >> .xinitrc
-echo "feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg" >> .xinitrc
-echo "~/void-deploy/scripts/.set_time.sh" >> .xinitrc
-echo "wait $wmpid" >> .xinitrc
+## Constructing .xinitrc files
+touch ~/.xinitrc_dwm
+echo 'if [ -d /etc/X11/xinit/xinitrc.d ] ; then \n for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do \n  [ -x "$f" ] && . "$f" \n done \n unset f \nfi' >> .xinitrc_dwm
+echo "setxkbmap us &" >> .xinitrc_dwm
+echo "exec dwm & wmpid=$!" >> .xinitrc_dwm
+echo "exec slstatus &" >> .xinitrc_dwm
+echo "sleep 5" >> .xinitrc_dwm
+echo "xset r rate 175" >> .xinitrc_dwm
+echo "~/void-deploy/scripts/.set_monitor.sh" >> .xinitrc_dwm
+echo "feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg" >> .xinitrc_dwm
+echo "~/void-deploy/scripts/.set_time.sh" >> .xinitrc_dwm
+echo "wait $wmpid" >> .xinitrc_dwm
+touch ~/.xinitrc_sowm
+echo 'if [ -d /etc/X11/xinit/xinitrc.d ] ; then \n for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do \n  [ -x "$f" ] && . "$f" \n done \n unset f \nfi' >> .xinitrc_sowm
+echo "setxkbmap us &" >> .xinitrc_sowm
+echo "exec sowm & wmpid=$!" >> .xinitrc_sowm
+echo "sleep 5" >> .xinitrc_sowm
+echo "xset r rate 175" >> .xinitrc_sowm
+echo "~/void-deploy/scripts/.set_monitor.sh" >> .xinitrc_sowm
+echo "feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg" >> .xinitrc_sowm
+echo "~/void-deploy/scripts/.set_time.sh" >> .xinitrc_sowm
+echo "wait $wmpid" >> .xinitrc_sowm
 
 
 ## Make .set_monitor.sh and .set_time.sh executable
