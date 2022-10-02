@@ -1,0 +1,14 @@
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+[ -x "$f" ] && . "$f"
+done
+unset f
+fi
+setxkbmap us &
+exec sowm & wmpid=
+sleep 5
+xset r rate 175
+~/void-deploy/scripts/.set_monitor.sh
+feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg
+~/void-deploy/scripts/.set_time.sh
+wait 
