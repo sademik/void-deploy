@@ -2,6 +2,10 @@
 # Void Linux with DWM and SOWM Deployment (my flavour)
 
 
+## Output log
+exec >/home/faen/.installation_log 2>&1
+
+
 ## System Update
 sudo xbps-install -Syy
 sudo xbps-install -u xbps
@@ -174,6 +178,12 @@ mkdir ~/.config/zathura/
 cp ~/void-deploy/configs/zathurarc ~/.config/zathura/zathurarc
 
 
+## Ranger configuration
+mkdir ~/.config/ranger/
+sudo cp void-deploy/configs/ranger/* ~/.config/ranger/
+
+
+
 ## Copy .desktop files
 sudo mkdir /usr/share/xsessions
 sudo cp void-deploy/configs/xsessions/dwm.desktop /usr/share/xsessions/dwm.desktop
@@ -188,6 +198,7 @@ sudo chmod +x ~/sowm.sh
 sudo cp void-deploy/configs/greetd/config.toml /etc/greetd/config.toml
 sudo ln -s /etc/sv/greetd /var/service
 sudo sv down greetd
+
 
 ## User chooses whether or not to reboot
 PS3='Reboot? '
