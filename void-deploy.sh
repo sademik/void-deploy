@@ -175,6 +175,7 @@ cp ~/void-deploy/configs/zathurarc ~/.config/zathura/zathurarc
 
 
 ## Copy .desktop files
+sudo mkdir /usr/share/xsessions
 sudo cp void-deploy/configs/xsessions/dwm.desktop /usr/share/xsessions/dwm.desktop
 sudo cp void-deploy/configs/xsessions/sowm.desktop /usr/share/xsessions/sowm.desktop
 cp void-deploy/scripts/dwm.sh ~/dwm.sh
