@@ -15,7 +15,7 @@ sudo xbps-install -Syy
 
 ## Define Minimal Installation Packages Function
 minimal-install () {
-sudo xbps-install -S -v --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop btop mpv feh exa neofetch vim alacritty fzf cmus gnupg gtk+3-devel p7zip mercurial zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip xz tar binutils ffmpeg ufetch w3m w3m-img xsel wally-cli setxkbmap xbindkeys task ntfs-3g
+sudo xbps-install -S -v --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop btop mpv feh exa neofetch vim alacritty fzf cmus gnupg gtk+3-devel p7zip mercurial zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip xz binutils ffmpeg ufetch w3m w3m-img xsel wally-cli setxkbmap xbindkeys task ntfs-3g
 }
 
 
