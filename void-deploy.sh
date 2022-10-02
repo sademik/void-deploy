@@ -78,9 +78,14 @@ sudo make clean install
 cd
 
 
-## Constructing .xinitrc files
+## Constructing .xinitrc files (temporary, will eventually come with repo)
 touch ~/.xinitrc_dwm
-echo 'if [ -d /etc/X11/xinit/xinitrc.d ] ; then \n for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do \n  [ -x "$f" ] && . "$f" \n done \n unset f \nfi' >> .xinitrc_dwm
+echo 'if [ -d /etc/X11/xinit/xinitrc.d ] ; then' >> .xinitrc_dwm 
+echo 'for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do' >> .xinitrc_dwm
+echo '[ -x "$f" ] && . "$f"' >> .xinitrc_dwm
+echo 'done' >> .xinitrc_dwm
+echo 'unset f' >> .xinitrc_dwm
+echo 'fi' >> .xinitrc_dwm
 echo "setxkbmap us &" >> .xinitrc_dwm
 echo "exec dwm & wmpid=$!" >> .xinitrc_dwm
 echo "exec slstatus &" >> .xinitrc_dwm
@@ -91,7 +96,12 @@ echo "feh --bg-fill ~/void-deploy/wallpapers/blame1.jpg" >> .xinitrc_dwm
 echo "~/void-deploy/scripts/.set_time.sh" >> .xinitrc_dwm
 echo "wait $wmpid" >> .xinitrc_dwm
 touch ~/.xinitrc_sowm
-echo 'if [ -d /etc/X11/xinit/xinitrc.d ] ; then \n for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do \n  [ -x "$f" ] && . "$f" \n done \n unset f \nfi' >> .xinitrc_sowm
+echo 'if [ -d /etc/X11/xinit/xinitrc.d ] ; then' >> .xinitrc_sowm
+echo 'for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do' >> .xinitrc_sowm
+echo '[ -x "$f" ] && . "$f"' >> .xinitrc_sowm
+echo 'done' >> .xinitrc_sowm
+echo 'unset f' >> .xinitrc_sowm
+echo 'fi' >> .xinitrc_sowm
 echo "setxkbmap us &" >> .xinitrc_sowm
 echo "exec sowm & wmpid=$!" >> .xinitrc_sowm
 echo "sleep 5" >> .xinitrc_sowm
