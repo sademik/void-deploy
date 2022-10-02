@@ -1,5 +1,5 @@
 # void-deploy
-deploys my dwm flavor of void linux, makes life easier
+deploys my flavoir of void linux, makes life easier
 
 ---
 
@@ -22,5 +22,3 @@ uncomment `#%wheel ALL=(ALL:ALL) NOPASSWD: ALL`
 `$ sudo chmod +x void-deploy/void-deploy.sh`
 
 `$ ./void-deploy/void-deploy.sh`
-
-### after restart, enter DWM with `startx`
