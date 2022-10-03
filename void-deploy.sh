@@ -1,9 +1,9 @@
-#!/bin/bash
+g 2>&1g 2>&1#!/bin/bash
 # Void Linux with DWM and SOWM Deployment (my flavour)
 
 
 ## Output log
-LOG_LOCATION=/home/user/void-deploy
+LOG_LOCATION=/home/faen/void-deploy
 exec > >(tee -i $LOG_LOCATION/installation_log)
 exec 2>&1
 echo "Log Location will be: [ $LOG_LOCATION ]"
@@ -184,6 +184,7 @@ cp ~/void-deploy/configs/zathurarc ~/.config/zathura/zathurarc
 ## Ranger configuration
 mkdir ~/.config/ranger/
 sudo cp void-deploy/configs/ranger/* ~/.config/ranger/
+sudo chmod +x ~/.config/ranger/scope.sh
 
 
 
