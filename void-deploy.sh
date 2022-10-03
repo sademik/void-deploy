@@ -120,6 +120,7 @@ sudo make clean install -C /home/$USER/suckless/dwm
 sudo make clean install -C /home/$USER/suckless/st
 sudo make clean install -C /home/$USER/suckless/dmenu
 sudo make clean install -C /home/$USER/suckless/slstatus
+cd
 
 
 ## SOWM Setup
