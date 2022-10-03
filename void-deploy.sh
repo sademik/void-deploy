@@ -3,7 +3,7 @@
 
 
 ## Output log
-LOG_LOCATION=/home/faen/void-deploy
+LOG_LOCATION=/home/$USER/void-deploy
 exec > >(tee -i $LOG_LOCATION/installation_log)
 exec 2>&1
 echo "Log Location will be: [ $LOG_LOCATION ]"
@@ -35,7 +35,7 @@ sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama
 ## Define ZSH Installation and Configuration Function
 zsh-install () {
 sudo xbps-install -S --yes zsh
-sudo chsh -s /bin/zsh faen
+sudo chsh -s /bin/zsh $USER
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 cd
@@ -48,7 +48,7 @@ cp ~/void-deploy/configs/zsh/.p10k.zsh ~/.p10k.zsh
 fish-install () {
 sudo xbps-install -S --yes fish-shell
 sudo echo /bin/fish | sudo tee -a /etc/shells
-sudo chsh -s /bin/fish faen
+sudo chsh -s /bin/fish $USER
 }
 
 ## User Chooses 'Minimal' or 'Full' Installation
@@ -116,22 +116,10 @@ git clone https://github.com/sademik/dwm
 git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dmenu
 git clone https://github.com/sademik/slstatus
-cd dwm
-make
-sudo make clean install
-cd ..
-cd st
-make
-sudo make clean install
-cd ..
-cd dmenu
-make
-sudo make clean install
-cd ..
-cd slstatus
-make
-sudo make clean install
-cd
+sudo make clean install -C /home/$USER/suckless/dwm
+sudo make clean install -C /home/$USER/suckless/st
+sudo make clean install -C /home/$USER/suckless/dmenu
+sudo make clean install -C /home/$USER/suckless/slstatus
 
 
 ## SOWM Setup
