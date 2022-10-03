@@ -3,7 +3,10 @@
 
 
 ## Output log
-exec >/home/faen/.installation_log 2>&1
+LOG_LOCATION=/home/user/void-deploy
+exec > >(tee -i $LOG_LOCATION/installation_log)
+exec 2>&1
+echo "Log Location will be: [ $LOG_LOCATION ]"
 
 
 ## System Update
