@@ -1,4 +1,4 @@
-g 2>&1g 2>&1#!/bin/bash
+#!/bin/bash
 # Void Linux with DWM and SOWM Deployment (my flavour)
 
 
