@@ -3,7 +3,7 @@
 
 
 ## Output log
-LOG_LOCATION=/home/$USER/void-deploy
+LOG_LOCATION=/home/faen/void-deploy
 exec > >(tee -i $LOG_LOCATION/installation_log)
 exec 2>&1
 echo "Log Location will be: [ $LOG_LOCATION ]"
@@ -35,7 +35,7 @@ sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama
 ## Define ZSH Installation and Configuration Function
 zsh-install () {
 sudo xbps-install -S --yes zsh
-sudo chsh -s /bin/zsh $USER
+sudo chsh -s /bin/zsh faen
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 cd
@@ -48,7 +48,7 @@ cp ~/void-deploy/configs/zsh/.p10k.zsh ~/.p10k.zsh
 fish-install () {
 sudo xbps-install -S --yes fish-shell
 sudo echo /bin/fish | sudo tee -a /etc/shells
-sudo chsh -s /bin/fish $USER
+sudo chsh -s /bin/fish faen
 }
 
 ## User Chooses 'Minimal' or 'Full' Installation
@@ -200,6 +200,7 @@ sudo chmod +x ~/sowm.sh
 ## Setup greetd and tuigreet
 sudo cp void-deploy/configs/greetd/config.toml /etc/greetd/config.toml
 sudo ln -s /etc/sv/greetd /var/service
+sudo sv down greetd
 
 
 ## Reboot
