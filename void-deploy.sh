@@ -90,6 +90,7 @@ mkdir /home/faen/.config/fish
 mkdir /home/faen/.config/fish/functions
 cp void-deploy/configs/fish_prompt.fish /home/faen/.config/fish/functions/fish_prompt.fish
 sudo chsh -s /bin/fish $USER
+set -e fish_greeting
 }
 
 
