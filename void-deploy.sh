@@ -86,6 +86,8 @@ cp ~/void-deploy/configs/zsh/.p10k.zsh ~/.p10k.zsh
 fish-install () {
 sudo xbps-install -S --yes fish-shell
 sudo echo /bin/fish | sudo tee -a /etc/shells
+mkdir /home/faen/.config/fish
+mkdir /home/faen/.config/fish/functions
 cp void-deploy/configs/fish_prompt.fish /home/faen/.config/fish/functions/fish_prompt.fish
 sudo chsh -s /bin/fish $USER
 }
