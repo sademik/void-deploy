@@ -42,8 +42,8 @@ dwm-install () {
 mkdir suckless
 cd suckless
 git clone https://github.com/sademik/dwm
-git clone https://git.suckless.org/st
-git clone https://git.suckless.org/dmenu
+git clone git://git.suckless.org/st
+git clone git://git.suckless.org/dmenu
 git clone https://github.com/sademik/slstatus
 sudo make clean install -C /home/$USER/suckless/dwm
 sudo make clean install -C /home/$USER/suckless/st
@@ -60,7 +60,7 @@ sudo chmod +x ~/dwm.sh
 ## SOWM Installation Function
 sowm-install () {
 git clone https://github.com/sademik/sowm
-git clone https://git.suckless.org/dmenu
+git clone git://git.suckless.org/dmenu
 sudo make clean install -C /home/$USER/sowm
 sudo make clean install -C /home/$USER/dmenu
 cp void-deploy/configs/xinitrc/.xinitrc_sowm .xinitrc_sowm
