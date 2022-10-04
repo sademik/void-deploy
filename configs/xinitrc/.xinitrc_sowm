@@ -6,6 +6,7 @@ unset f
 fi
 setxkbmap us &
 exec sowm & wmpid=
+exec picom --no-vsync &
 sleep 5
 xset r rate 175
 ~/void-deploy/scripts/.set_monitor.sh
