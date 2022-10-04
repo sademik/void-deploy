@@ -89,8 +89,9 @@ sudo echo /bin/fish | sudo tee -a /etc/shells
 mkdir /home/faen/.config/fish
 mkdir /home/faen/.config/fish/functions
 cp void-deploy/configs/fish_prompt.fish /home/faen/.config/fish/functions/fish_prompt.fish
+touch /home/faen/.config/fish/config.fish
+echo "set -g fish_greeting" >> /home/faen/.config/fish/config.fish
 sudo chsh -s /bin/fish $USER
-set -e fish_greeting
 }
 
 
