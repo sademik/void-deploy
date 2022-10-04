@@ -60,9 +60,9 @@ sudo chmod +x ~/dwm.sh
 ## SOWM Installation Function
 sowm-install () {
 git clone https://github.com/sademik/sowm
-cd sowm
-sudo make clean install
-cd
+git clone https://git.suckless.org/dmenu
+sudo make clean install -C /home/$USER/sowm
+sudo make clean install -C /home/$USER/dmenu
 cp void-deploy/configs/xinitrc/.xinitrc_sowm .xinitrc_sowm
 sudo cp void-deploy/configs/xsessions/sowm.desktop /usr/share/xsessions/sowm.desktop
 cp void-deploy/scripts/sowm.sh ~/sowm.sh
