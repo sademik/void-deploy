@@ -2,27 +2,20 @@
 # Void Linux with DWM and SOWM Deployment (my flavour)
 
 
-## Output log
+### --- TOP --- ###
+
+
+
+## Script Logging
 LOG_LOCATION=/home/$USER/void-deploy
 exec > >(tee -i $LOG_LOCATION/installation_log)
 exec 2>&1
 echo "Log Location will be: [ $LOG_LOCATION ]"
 
 
-## System Update
-sudo xbps-install -Syy
-sudo xbps-install -u xbps
-sudo xbps-install -Syu
 
+### --- FUNCTION DEFINITIONS --- ###
 
-## Create Needed Folders
-sudo mkdir /usr/share/xsessions
-mkdir ~/.config
-
-
-## Enable Non-Free/Multilib Repos
-sudo xbps-install -S --yes void-repo-multilib void-repo-multilib-nonfree void-repo-nonfree
-sudo xbps-install -Syy
 
 
 ## Define Minimal Installation Packages Function
@@ -93,6 +86,27 @@ touch /home/faen/.config/fish/config.fish
 echo "set -g fish_greeting" >> /home/faen/.config/fish/config.fish
 sudo chsh -s /bin/fish $USER
 }
+
+
+
+### --- CORE INSTALLATION --- ###
+
+
+
+## System Update
+sudo xbps-install -Syy
+sudo xbps-install -u xbps
+sudo xbps-install -Syu
+
+
+## Create Needed Folders
+sudo mkdir /usr/share/xsessions
+mkdir ~/.config
+
+
+## Enable Non-Free/Multilib Repos
+sudo xbps-install -S --yes void-repo-multilib void-repo-multilib-nonfree void-repo-nonfree
+sudo xbps-install -Syy
 
 
 ## User Chooses 'Minimal' or 'Full' Installation
@@ -190,6 +204,11 @@ do
 done
 
 
+
+### --- CONFIGURATION --- ###
+
+
+
 ## Make .set_monitor.sh and .set_time.sh executable
 sudo chmod +x ~/void-deploy/scripts/.set_monitor.sh
 sudo chmod +x ~/void-deploy/scripts/.set_time.sh
@@ -238,5 +257,9 @@ sudo ln -s /etc/sv/greetd /var/service
 sudo sv down greetd
 
 
-## Reboot
+
+### --- REBOOT --- ###
+
+
+
 sudo reboot
