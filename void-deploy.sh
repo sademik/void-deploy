@@ -232,6 +232,12 @@ mkdir ~/.config/picom/
 cp void-deploy/configs/picom.conf ~/.config/picom/picom.conf
 
 
+## Lemonbar Configuration
+mkdir ~/.config/lemonbar/
+cp void-deploy/scripts/lemonbar.sh ~/.config/lemonbar/lemonbar.sh
+sudo chmod +x ~/.config/lemonbar/lemonbar.sh
+
+
 ## Copy fonts
 mkdir ~/.fonts
 cp ~/void-deploy/fonts/* ~/.fonts
