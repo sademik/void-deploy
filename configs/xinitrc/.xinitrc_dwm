@@ -8,6 +8,7 @@ setxkbmap us &
 exec dwm & wmpid=
 exec slstatus &
 exec picom --no-vsync &
+~/.config/lemonbar/lemonbar.sh | lemonbar -p
 sleep 5
 xset r rate 175
 ~/void-deploy/scripts/.set_monitor.sh
