@@ -32,7 +32,7 @@ Memory(){
 }
  
 while true; do
-	echo -e "$(User) [$(Uptime)] [$(Cpu)] []$(Memory)] [$(Clock)]"
+	echo -e "[$(User)] [$(Uptime)] [$(Cpu)] [$(Memory)] [$(Clock)]"
 	#Uncomment the sleep command here if $(Network) isn't active otherwise the sleep command is provided in it
 	sleep 1s
 done
