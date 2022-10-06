@@ -11,6 +11,6 @@ exec picom --no-vsync &
 sleep 5
 xset r rate 175
 ~/void-deploy/scripts/.set_monitor.sh
-feh --bg-fill ~/void-deploy/wallpapers/spiritedaway.png
+feh --bg-fill ~/void-deploy/wallpapers/spiritedaway1.png
 ~/void-deploy/scripts/.set_time.sh
 wait 
