@@ -55,6 +55,9 @@ sudo chmod +x ~/dwm.sh
 sowm-install () {
 git clone https://github.com/sademik/sowm
 git clone git://git.suckless.org/dmenu
+cd sowm
+git apply patches/110.patch
+cd
 sudo make clean install -C /home/$USER/sowm
 sudo make clean install -C /home/$USER/dmenu
 cp void-deploy/configs/xinitrc/.xinitrc_sowm .xinitrc_sowm
