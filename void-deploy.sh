@@ -224,6 +224,11 @@ mkdir ~/.config/alacritty/
 cp ~/void-deploy/configs/alacritty.yml ~/.config/alacritty/
 
 
+## MOC Configuration
+mkdir ~/.moc/
+cp ~/void-deploy/configs/moc/config ~/.moc/config
+
+
 ## VIM Configuration
 cp ~/void-deploy/configs/.vimrc .vimrc
 sudo curl https://raw.githubusercontent.com/stayradiated/dotfiles/master/apps/vim/colors/shblah.vim --output /usr/share/vim/vim90/colors/shblah.vim
