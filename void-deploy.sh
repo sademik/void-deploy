@@ -21,7 +21,7 @@ echo "Log Location will be: [ $LOG_LOCATION ]"
 
 ## Define Minimal Installation Packages Function
 minimal-install () {
-sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel xdg-utils libcurl-devel dbus-devel dbus-glib-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop btop mpv feh exa neofetch vim alacritty picom fzf moc gnupg gtk+3-devel p7zip mercurial lemonbar zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip xz binutils ffmpeg ufetch w3m w3m-img xsel wally-cli setxkbmap xbindkeys task ntfs-3g greetd tuigreet
+sudo xbps-install -S --yes base-devel xorg libXft-devel libX11-devel libXinerama-devel libXt-devel xdg-utils libcurl-devel dbus-devel dbus-glib-devel xcb-imdkit xcb-proto xcb-util xcb-util-cursor xcb-util-errors xcb-util-image xcb-util-keysyms xcb-util-renderutil xcb-util-wm xcb-util-xrm libxcb-devel xcb-util-keysyms-devel xcb-util-wm-devel xcb-util-xrm-devel curl wget xtools ranger xdg-desktop-portal pulseaudio pulseaudio-devel ntp micro pcmanfm firefox nodejs htop btop mpv feh exa neofetch vim alacritty picom fzf moc gnupg gtk+3-devel p7zip mercurial lemonbar zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps zip xz binutils ffmpeg ufetch w3m w3m-img xsel wally-cli setxkbmap xbindkeys task ntfs-3g greetd tuigreet
 }
 
 
@@ -64,6 +64,19 @@ cp void-deploy/configs/xinitrc/.xinitrc_sowm .xinitrc_sowm
 sudo cp void-deploy/configs/xsessions/sowm.desktop /usr/share/xsessions/sowm.desktop
 cp void-deploy/scripts/sowm.sh ~/sowm.sh
 sudo chmod +x ~/sowm.sh
+}
+
+
+## 2BWM Installation Function
+2bwm-install () {
+git clone https://github.com/sademik/2bwm
+git clone git://git.suckless.org/dmenu
+sudo make clean install -C /home/$USER/2bwm
+sudo make clean install -C /home/$USER/dmenu
+cp void-deploy/configs/xinitrc/.xinitrc_2bwm .xinitrc_2bwm
+sudo cp void-deploy/configs/xsessions/2bwm.desktop /usr/share/xsessions/2bwm.desktop
+cp void-deploy/scripts/2bwm.sh ~/2bwm.sh
+sudo chmod +x ~/2bwm.sh
 }
 
 
@@ -141,7 +154,7 @@ done
 
 ## User Chooses Their Window Manager
 PS3='Window Manager: '
-options=("DWM" "SOWM" "Both" "None" "Quit")
+options=("DWM" "SOWM" "2BWM" "DWM and SOWM" "DWM and 2BWM" "None" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -157,13 +170,28 @@ do
       echo "SOWM installation completed."
       break
       ;;
-    "Both")
+    "2BWM")
+      echo "2BWM installation initialized."
+      2bwm-install
+      echo "2BWM installation completed."
+      break
+      ;;
+    "DWM and SOWM")
       echo "DWM installation initialized."
       dwm-install
       echo "DWM installation completed."
       echo "SOWM installation initialized."
       sowm-install
       echo "SOWM installation completed."
+      break
+      ;;
+    "DWM and 2BWM")
+      echo "DWM installation initialized."
+      dwm-install
+      echo "DWM installation completed."
+      echo "2BWM installation initialized."
+      2bwm-install
+      echo "2BWM installation completed."
       break
       ;;
     "None")
