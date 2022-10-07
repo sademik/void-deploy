@@ -154,7 +154,7 @@ done
 
 ## User Chooses Their Window Manager
 PS3='Window Manager: '
-options=("DWM" "SOWM" "2BWM" "DWM and SOWM" "DWM and 2BWM" "None" "Quit")
+options=("DWM" "SOWM" "2BWM" "Continue" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -162,39 +162,18 @@ do
       echo "DWM installation initialized."
       dwm-install
       echo "DWM installation completed."
-      break
       ;;
     "SOWM")
       echo "SOWM installation initialized."
       sowm-install
       echo "SOWM installation completed."
-      break
       ;;
     "2BWM")
       echo "2BWM installation initialized."
       2bwm-install
       echo "2BWM installation completed."
-      break
       ;;
-    "DWM and SOWM")
-      echo "DWM installation initialized."
-      dwm-install
-      echo "DWM installation completed."
-      echo "SOWM installation initialized."
-      sowm-install
-      echo "SOWM installation completed."
-      break
-      ;;
-    "DWM and 2BWM")
-      echo "DWM installation initialized."
-      dwm-install
-      echo "DWM installation completed."
-      echo "2BWM installation initialized."
-      2bwm-install
-      echo "2BWM installation completed."
-      break
-      ;;
-    "None")
+    "Continue")
       break
       ;;
     "Quit")
